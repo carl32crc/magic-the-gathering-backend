@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 
 // models
-const User = require('../models/user')
+const User = require('../../models/users')
 
 const uploadImg = (req, res) => {
     const userId = req.params.id
@@ -24,6 +24,14 @@ const uploadImg = (req, res) => {
             if (userId != req.user.sub) {
                 return res.status(500).send({ message: 'No tienes permisos' })
             }
+
+            User.findById(userId, (err, user)=>{
+
+                if ( user.image ) {
+                    fs.unlink( 'uploads\\users\\' + user.image , (err) => {})
+                }
+                
+            })
         
             User.findByIdAndUpdate(userId, { image: fileName }, {new:true}, (err, userUpdated) => {
                 if (err) {
@@ -40,7 +48,7 @@ const uploadImg = (req, res) => {
         
         } else {
 
-            fs.unlink(filePath, (err)=>{
+            fs.unlink(filePath, (err) => {
                 if (err) {
                     res.status(200).send({ message: 'La extensión no es valida tiene que ser .jpg, .png o .jpeg y fichero no borrado' })
                 } else {
