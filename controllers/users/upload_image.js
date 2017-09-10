@@ -26,7 +26,7 @@ const uploadImg = (req, res) => {
             }
 
             User.findById(userId, (err, user)=>{
-
+                
                 if ( user.image ) {
                     fs.unlink( 'uploads\\users\\' + user.image , (err) => {})
                 }
