@@ -25,7 +25,6 @@ const login = (req, res) => {
 
                 bcrypt.compare(password, isSetUser.password, (err, check)=>{
                     if (check) {
-                        console.log(params.getToken);
                         // comprobar y generar token
                         if ( params.getToken ) {
                             res.status(200).send({ 
