@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 
 // models
-const User = require('../models/user')
+const User = require('../../models/users')
 
 const getImageFile = (req, res) => { 
     const imageFile = req.params.imageFile
