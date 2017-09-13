@@ -2,14 +2,12 @@
 
 // modules
 const fs = require('fs')
-const path = require('path')
 
 // models
 const User = require('../../models/users')
 
 const uploadImg = (req, res) => {
     const userId = req.params.id
-    const fileName = 'No subido...'
 
     if ( req.files ) {
         const image = req.files.image

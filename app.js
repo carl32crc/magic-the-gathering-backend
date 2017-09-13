@@ -7,7 +7,8 @@ const app = express()
 
 // routes
 const routesCards = require('./routes/cards')
-const routesUser = require('./routes/users')
+const routesUsers = require('./routes/users')
+const routesArticles = require('./routes/articles') 
 
 // midlewares body-parser
 
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 // Base routes
 
 app.use('/api', routesCards)
-app.use('/api', routesUser)
+app.use('/api', routesUsers)
+app.use('/api', routesArticles)
 
 module.exports = app

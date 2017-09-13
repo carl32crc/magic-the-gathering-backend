@@ -20,14 +20,7 @@ const saveUser = (req, res) => {
 
                 if ( params.password && params.name && params.surname && params.email ) {
 
-                    const user = new User()
-                    
-                    user.name = params.name
-                    user.surname = params.surname
-                    user.email = params.email
-                    user.creationDate = Date()
-                    user.role = 'ROLE_USER'
-                    user.image = null
+                    const user = new User( params )
 
                     bcrypt.hash(params.password, null, null, (err, hash) => {
                         

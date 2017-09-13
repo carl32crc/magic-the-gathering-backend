@@ -1,6 +1,7 @@
 'user strict'
 
 const express = require('express')
+const api = express.Router()
 
 // controllers
 const saveUser = require('../controllers/users/save_user')
@@ -11,7 +12,6 @@ const getAllUsers = require('../controllers/users/get_all_users')
 const deleteUser = require('../controllers/users/delete_user')
 const updateUser = require('../controllers/users/update_user')
 
-const api = express.Router()
 const ensureAuth = require('../middlewares/authenticated')
 const isAdmin = require('../middlewares/is_admin')
 

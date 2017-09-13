@@ -8,9 +8,9 @@ const userSchema = Schema({
     surname: String,
     email: String,
     password: String,
-    creationDate: String,
-    image: String,
-    role: String
+    creationDate: { type: Date, default: Date() },
+    image: { type: String, default: null},
+    role: { type: String, default: 'ROLE_USER'},
 })
 
 module.exports = mongoose.model('User', userSchema)
