@@ -7,9 +7,9 @@ const path = require('path')
 // models
 const User = require('../../models/users')
 
-const getImageFile = (req, res) => { 
+const getImageFile = (folder, req, res) => { 
     const imageFile = req.params.imageFile
-    const pathFile = `./uploads/users/${imageFile}`
+    const pathFile = `./uploads/${folder}/${imageFile}`
 
     fs.exists(pathFile, (exists)=> {
         if ( exists ) {
