@@ -25,10 +25,11 @@ const isAdmin = require('../middlewares/is_admin')
 api.post('/register', saveUser )
 api.post('/login', login )
 api.post('/upload-user-image/:id', [ensureAuth, mdUpload], uploadImg.bind(null, User) )
+
 api.put('/update-user/:id', ensureAuth, updateUser )
 
 api.get('/image-user/:imageFile', ensureAuth, getImageFile.bind(null, 'users') )
-api.get('/get-all-users', [ensureAuth, isAdmin], getAllUsers )
+api.get('/all-users', [ensureAuth, isAdmin], getAllUsers )
 
 api.delete('/delete/:id', [ensureAuth, isAdmin], deleteUser )
 
