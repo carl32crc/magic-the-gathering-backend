@@ -21,7 +21,7 @@ const Article = require('../models/articles')
 // middlewares
 const ensureAuth = require('../middlewares/authenticated')
 
-api.post('/save-article', saveArticle )
+api.post('/save-article', ensureAuth, saveArticle )
 api.post('/upload-article-image/:id', [ensureAuth, mdUpload], uploadImg.bind(null, Article) )
 
 api.put('/update-article/:id', ensureAuth, updateArticle )
