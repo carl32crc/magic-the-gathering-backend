@@ -21,7 +21,7 @@ const uploadImg = (model, req, res) => {
                     return res.status(500).send({ message: 'No tienes permisos' })
                 }
     
-                model.findById(id, (err, data)=>{
+                model.findById(id, (err, data) => {
                     
                     if ( data.image ) {
                         fs.unlink( `uploads\\${filePath.split('\\')[1]}\\` + data.image , (err) => {})
