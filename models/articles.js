@@ -1,6 +1,7 @@
 'use strict'
 
 const mongoose = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate')
 const Schema = mongoose.Schema;
 
 const articleSchema = Schema({
@@ -13,5 +14,6 @@ const articleSchema = Schema({
     creationDate: { type: Date, default: Date() },
     isDelete: { type: Boolean, default: false }
 })
+articleSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Article', articleSchema)
