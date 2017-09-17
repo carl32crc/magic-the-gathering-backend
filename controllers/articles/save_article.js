@@ -26,7 +26,8 @@ const saveArticle = (req, res) => {
                 } else {
                     res.status(200).send({ 
                         message: 'El articulo se ha guardado correctamente', 
-                        article: articleStored })
+                        article: articleStored 
+                    })
                 }
             }
 

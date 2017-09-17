@@ -5,12 +5,13 @@ const Article = require('../../models/articles')
 
 const getAllArticles = (req, res) => {
 
+    const page = req.query.page
     const query = {}
     
     const options = {
       sort: { creationDate: -1 },
       limit: 2,
-      page: 2
+      page: page
     }
     
     Article.paginate(query, options).then((articles) => {

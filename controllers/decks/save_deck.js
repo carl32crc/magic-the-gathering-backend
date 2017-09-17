@@ -12,6 +12,8 @@ const saveDeck = (req, res) => {
 
     if ( params.title && params.subtitle ) {
         
+        // console.log(params.colors.length);
+
         const deck = new Deck( params )
 
         deck.save((err, deckStored) => {
@@ -24,7 +26,8 @@ const saveDeck = (req, res) => {
                 } else {
                     res.status(200).send({ 
                         message: 'El articulo se ha guardado correctamente', 
-                        deck: deckStored })
+                        deck: deckStored 
+                    })
                 }
             }
 

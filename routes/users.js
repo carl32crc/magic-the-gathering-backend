@@ -11,7 +11,8 @@ const saveUser    = require('../controllers/users/save_user')
 const login       = require('../controllers/users/login')
 const getAllUsers = require('../controllers/users/get_all_users')
 const deleteUser  = require('../controllers/users/delete_user')
-const updateUser  = require('../controllers/users/update_user')
+
+const update = require('../controllers/update/update')
 
 const uploadImg    = require('../controllers/image/upload_image')
 const getImageFile = require('../controllers/image/get_image')
@@ -27,7 +28,7 @@ api.post('/register', saveUser )
 api.post('/login', login )
 api.post('/upload-user-image/:id', [ensureAuth, mdUpload], uploadImg.bind(null, User) )
 
-api.put('/update-user/:id', ensureAuth, updateUser )
+api.put('/update-user/:id', ensureAuth, update.bind(null, User) )
 
 api.get('/image-user/:imageFile', ensureAuth, getImageFile.bind(null, 'users') )
 api.get('/all-users', [ensureAuth, isAdmin], getAllUsers )

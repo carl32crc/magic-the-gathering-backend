@@ -10,7 +10,8 @@ const mdUpload = multiparty({ uploadDir: './uploads/articles' })
 const uploadImg    = require('../controllers/image/upload_image')
 const getImageFile = require('../controllers/image/get_image')
 
-const updateArticle  = require('../controllers/articles/update_article')
+const update = require('../controllers/update/update')
+
 const getAllArticles = require('../controllers/articles/get_all_articles')
 const saveArticle    = require('../controllers/articles/save_article')
 const getArticle     = require('../controllers/articles/get_article')
@@ -24,7 +25,7 @@ const ensureAuth = require('../middlewares/authenticated')
 api.post('/save-article', ensureAuth, saveArticle )
 api.post('/upload-article-image/:id', [ensureAuth, mdUpload], uploadImg.bind(null, Article) )
 
-api.put('/update-article/:id', ensureAuth, updateArticle )
+api.put('/update-article/:id', ensureAuth, update.bind(null, Article) )
 
 api.get('/image-article/:imageFile', getImageFile.bind(null, 'articles') )
 api.get('/all-articles', getAllArticles )
