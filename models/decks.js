@@ -3,15 +3,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-const Color = Schema({
-    color: String
-})
+// models
+const color = require('./color')
 
 const DecksSchema = Schema({
     title: String,
     subtitle: String,
     format: String,
-    colors: [Color],
+    colors: [color],
     cards: String,
     sideboard: String,
     author: String,
