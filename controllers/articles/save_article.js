@@ -16,6 +16,8 @@ const saveArticle = (req, res) => {
         
         const article = new Article( params )
 
+        article.user = req.user.sub
+
         article.save((err, articleStored) => {
             
             if (err) {

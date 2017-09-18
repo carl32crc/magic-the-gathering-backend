@@ -6,8 +6,7 @@ const Article = require('../../models/articles')
 const getArticle = (req, res) => {
     const articleId = req.params.id
     const update = req.body
-
-    Article.findById(articleId, (err, article) => {
+    Article.find({}).populate({path: 'user'}).exec((err, article) => {
         if (err) {
             res.status(500).send({ message: 'Error al realizar la peticion' })
         } else {
@@ -17,7 +16,19 @@ const getArticle = (req, res) => {
                 res.status(200).send({ article: article })
             }
         }
+
     })
+    // Article.findById(articleId, (err, article) => {
+    //     if (err) {
+    //         res.status(500).send({ message: 'Error al realizar la peticion' })
+    //     } else {
+    //         if(!article) {
+    //             res.status(404).send({ message: 'El articulo no existe' })
+    //         } else {
+    //             res.status(200).send({ article: article })
+    //         }
+    //     }
+    // })
 
 }
 

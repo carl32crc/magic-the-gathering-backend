@@ -6,7 +6,7 @@ const Article = require('../../models/articles')
 const getAllArticles = (req, res) => {
 
     const page = req.query.page
-    const query = {}
+    const query = {isDelete: true}
     
     const options = {
       sort: { creationDate: -1 },

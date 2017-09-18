@@ -1,14 +1,14 @@
 
-const Deck = require('../../models/decks')
+const Article = require('../../models/articles')
 
-const autoUpdateDecks = () => {
+const autoUpdate = () => {
     
-    Deck.find({}, (err, decks) => {
+    Article.find({}, (err, article) => {
         
-        console.log(decks);    
+        console.log(article);    
         
     })
 }
 
 
-module.exports = autoUpdateDecks
+module.exports = autoUpdate
