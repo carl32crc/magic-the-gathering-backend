@@ -4,11 +4,13 @@
 const Article = require('../../models/articles')
 
 const getArticle = (req, res) => {
-    
-    const articleId = req.params.id
+
     const update = req.body
-    
-    Article.find({ _id: articleId }).populate({ path: 'user' }).exec((err, article) => {
+    let query = {}
+
+    req.params.id !== 'my-articles' ? query = {_id: req.params.id} : query = {}
+
+    Article.find(query).populate({ path: 'user' }).exec((err, article) => {
         
         if (err) {
             res.status(500).send({ message: 'Error al realizar la peticion' })

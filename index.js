@@ -11,9 +11,9 @@ mongoose.connect('mongodb://localhost:27017/magic', { useMongoClient: true })
 .then( ()=> {
     console.log('Connect to DB ok')
 
-    //setInterval(function (){
-        // autoUpdate()
-    //}, 1000)
+    // setInterval( () => {
+    //     autoUpdate()
+    // }, 1000)
     
 
     app.listen( port, () => {
