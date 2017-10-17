@@ -24,18 +24,21 @@ const login = (req, res) => {
             if ( isSetUser ) {
 
                 bcrypt.compare(password, isSetUser.password, (err, check)=>{
+
+                    let user = isSetUser.toObject();
+                    delete user.password;
+  
                     if (check) {
                         // comprobar y generar token
-                        if ( params.getToken ) {
+                        if (params.token && isSetUser) {
                             res.status(200).send({ 
-                                token: jwt(isSetUser)
-                                })
-                        } else {
-                            res.status(200).send({ isSetUser })
-                        }
+                                token: jwt(isSetUser),
+                                user: user
+                            })
+                        } 
 
                     } else {
-                        res.status(404).send({ message: 'Has introducido mal algun campo o el usuario no existe 2' })
+                        res.status(404).send({ message: 'Has introducido mal algun campo o el usuario no existe 4' })
                     }
                 })
 

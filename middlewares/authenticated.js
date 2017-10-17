@@ -7,7 +7,7 @@ const secret = require('../token/secret_token.json')
 const authenticated = (req, res, next) => {
 
     if (!req.headers.authorization) {
-        return res.status(403).send({
+        return res.status(401).send({
             message: 'The request not have athorization headers'
         })
     } else {
