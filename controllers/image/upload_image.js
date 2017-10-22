@@ -7,7 +7,7 @@ const uploadImg = (model, req, res) => {
     
     const id = req.params.id
     
-        if ( req.files ) {
+        if ( req.files.image ) {
             const image = req.files.image
             const filePath = req.files.image.path
             const fileName = filePath.split('\\')[2]
@@ -18,7 +18,7 @@ const uploadImg = (model, req, res) => {
                  extensionImage === 'jpeg' || extensionImage === 'JPEG') {
     
                 if (id !== req.user.sub && filePath.split('\\')[1] === 'users') {
-                    return res.status(500).send({ message: 'No tienes permisos' })
+                    return res.status(403).send({ message: 'No tienes permisos' })
                 }
     
                 model.findById(id, (err, data) => {

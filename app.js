@@ -9,6 +9,7 @@ const app = express()
 const routesCards    = require('./routes/cards')
 const routesUsers    = require('./routes/users')
 const routesArticles = require('./routes/articles')
+const routesSlider   = require('./routes/slider')
 
 // midlewares body-parser
 
@@ -31,5 +32,6 @@ app.use((req, res, next) => {
 app.use('/api', routesCards)
 app.use('/api', routesUsers)
 app.use('/api', routesArticles)
+app.use('/api', routesSlider)
 
 module.exports = app

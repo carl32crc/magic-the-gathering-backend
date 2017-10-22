@@ -16,6 +16,8 @@ const login = (req, res) => {
     const password = params.password
 
     User.findOne({ email: email }, (err, isSetUser) => {
+
+        
         
         if (err) {
             res.status(500).send({ message: 'Error en la comprobación de si el usuario existe' })

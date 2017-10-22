@@ -15,7 +15,7 @@ const deleteUser = (req, res) => {
   
         let response = {
             message: "User successfully deleted",
-            id: user
+            user: user
         }
         
         res.status(200).send(response);
