@@ -30,7 +30,7 @@ api.post('/upload-user-image/:id', [ensureAuth, mdUpload], uploadImg.bind(null, 
 
 api.put('/update-user/:id', ensureAuth, update.bind(null, User) )
 
-api.get('/image-user/:imageFile', ensureAuth, getImageFile.bind(null, 'users') )
+api.get('/image-user/:imageFile', getImageFile.bind(null, 'users') )
 api.get('/all-users', [ensureAuth, isAdmin], getAllUsers )
 
 api.delete('/delete/:id', [ensureAuth, isAdmin], deleteUser )

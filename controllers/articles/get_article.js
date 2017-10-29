@@ -5,10 +5,7 @@ const Article = require('../../models/articles')
 
 const getArticle = (req, res) => {
 
-    const update = req.body
-    let query = {}
-
-    req.params.id !== 'my-articles' ? query = {_id: req.params.id} : query = {}
+    let query = {_id: req.params.id}
 
     Article.find(query).populate({ path: 'user' }).exec((err, article) => {
         

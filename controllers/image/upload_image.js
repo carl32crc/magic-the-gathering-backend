@@ -36,7 +36,7 @@ const uploadImg = (model, req, res) => {
                         if(!updated) {
                             res.status(404).send({ message: 'No se ha podido actualizar el usuario' })
                         } else {
-                            res.status(200).send({ user: updated , image: fileName})
+                            res.status(200).send({ image: fileName})
                         }
                     }
                 })

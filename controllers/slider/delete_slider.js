@@ -7,14 +7,16 @@ const fs = require('fs')
 
 const deleteSlide = (req, res) => {
 
-    Slider.findByIdAndRemove(req.params.id, (err, slide) => {  
+    const id = req.params.id
+
+    Slider.findByIdAndRemove(id, (err, slide) => {  
 
         if ( slide.image ) {
             fs.unlink( 'uploads\\slider\\' + slide.image , (err) => {})
         }
   
         let response = {
-            message: "Slide successfully deleted",
+            message: 'Slide successfully deleted',
             slide: slide
         }
         

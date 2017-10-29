@@ -40,7 +40,7 @@ const login = (req, res) => {
                         } 
 
                     } else {
-                        res.status(404).send({ message: 'Has introducido mal algun campo o el usuario no existe 4' })
+                        res.status(404).send({ message: 'Has introducido mal algun campo o el usuario no existe' })
                     }
                 })
 

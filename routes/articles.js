@@ -15,6 +15,8 @@ const update = require('../controllers/update/update')
 const getAllArticles = require('../controllers/articles/get_all_articles')
 const saveArticle    = require('../controllers/articles/save_article')
 const getArticle     = require('../controllers/articles/get_article')
+const getMyArticles  = require('../controllers/articles/get_my_articles')
+const deleteArticle  = require('../controllers/articles/delete_article')
 
 // models
 const Article = require('../models/articles')
@@ -30,5 +32,8 @@ api.put('/update-article/:id', ensureAuth, update.bind(null, Article) )
 api.get('/image-article/:imageFile', getImageFile.bind(null, 'articles') )
 api.get('/all-articles', getAllArticles )
 api.get('/article/:id', getArticle )
+api.get('/my-articles/:id', ensureAuth, getMyArticles )
+
+api.delete('/delete-article/:id', ensureAuth, deleteArticle)
 
 module.exports = api
